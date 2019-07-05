@@ -1,54 +1,58 @@
 <template>
   <div>
-    <Loader />
-    <b-container fluid>
-      <b-row>
-        <b-col sm="5" class="left-wrapper">
-          <div class="event-banner-wrapper" style="background: url(/images/event-banner.jpg);">
-            <div class="logo">
-              <h1>Stage</h1>
-            </div>
+    <div v-if="loading">
+      <Loader />
+    </div>
+    <div v-else>
+      <b-container fluid>
+        <b-row>
+          <b-col sm="5" class="left-wrapper">
+            <div class="event-banner-wrapper" style="background: url(/images/event-banner.jpg);">
+              <div class="logo">
+                <h1>Stage</h1>
+              </div>
 
-            <h2>
-              Music
-              <br />Concert Live
-              <span>10 April 2017, 8:00 PM</span>
-            </h2>
-            <p>
-              created by
-              <a href="http://www.pixpalette.com" target="_blank">pixpalette</a>
-            </p>
-          </div>
-        </b-col>
-        <b-col sm="7" class="right-wrapper">
-          <div class="event-ticket-wrapper">
-            <div class="event-tab">
-              <b-nav class="nav-tabs">
-                <li role="presentation" class="active">
-                  <a
-                    href="#buyTicket"
-                    aria-controls="buyTicket"
-                    role="tab"
-                    data-toggle="tab">
-                    Buy Tickets
-                  </a>
-                </li>
-                <li role="presentation">
-                  <a 
-                    href="#venue"
-                    aria-controls="venue"
-                    role="tab"
-                    data-toggle="tab">
-                    Venue
-                  </a>
-                </li>
-                <b-nav-item active>Terms &amp; Conditions</b-nav-item>
-              </b-nav>
+              <h2>
+                Music
+                <br />Concert Live
+                <span>10 April 2017, 8:00 PM</span>
+              </h2>
+              <p>
+                created by
+                <a href="http://www.pixpalette.com" target="_blank">pixpalette</a>
+              </p>
             </div>
-          </div>
-        </b-col>
-      </b-row>
-    </b-container>
+          </b-col>
+          <b-col sm="7" class="right-wrapper">
+            <div class="event-ticket-wrapper">
+              <div class="event-tab">
+                <b-nav class="nav-tabs">
+                  <li role="presentation" class="active">
+                    <a
+                      href="#buyTicket"
+                      aria-controls="buyTicket"
+                      role="tab"
+                      data-toggle="tab">
+                      Buy Tickets
+                    </a>
+                  </li>
+                  <li role="presentation">
+                    <a 
+                      href="#venue"
+                      aria-controls="venue"
+                      role="tab"
+                      data-toggle="tab">
+                      Venue
+                    </a>
+                  </li>
+                  <b-nav-item active>Terms &amp; Conditions</b-nav-item>
+                </b-nav>
+              </div>
+            </div>
+          </b-col>
+        </b-row>
+      </b-container>
+    </div>
     <!-- <div class="container-fluid">
         <div class="col-sm-7 right-wrapper">
           <div class="event-ticket-wrapper">
@@ -633,6 +637,21 @@
 <style lang="scss">
 @import "main.scss";
 </style>
+
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+
+@Component
+export default class App extends Vue {
+  private loading = true;
+
+  public created() {
+    setTimeout(() => {
+      this.loading = false;
+    }, 1000);
+  }
+}
+</script>
 
 // <router-link to="/">Home</router-link> |
 // <router-link to="/about">About</router-link>
