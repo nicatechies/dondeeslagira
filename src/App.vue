@@ -47,8 +47,11 @@
                   </li>
                   <b-nav-item active>Terms &amp; Conditions</b-nav-item>
                 </b-nav>
+
               </div>
+              <EventList></EventList>
             </div>
+
           </b-col>
         </b-row>
       </b-container>
@@ -640,8 +643,13 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import EventList from '@/components/EventList.vue'; // @ is an alias to /src
 
-@Component
+@Component({
+  components: {
+    EventList,
+  },
+})
 export default class App extends Vue {
   private loading = true;
 
