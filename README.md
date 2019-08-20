@@ -3,6 +3,7 @@
 ## Project setup
 ```
 yarn install
+cp .env.development .env.development.local
 ```
 
 ### Compiles and hot-reloads for development
