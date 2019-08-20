@@ -6,29 +6,29 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    locations: null
+    locations: null,
   },
   getters: {
-    getLocations: state => state.locations
+    getLocations: (state) => state.locations,
   },
   mutations: {
     setLocations: (state, locations) => {
       state.locations = locations;
-    }
+    },
   },
   actions: {
     setLocations: ({commit}) => {
       let locations: any = [];
 
-      db.collection('locations').onSnapshot(snapshot => {
+      db.collection('locations').onSnapshot((snapshot) => {
         locations = [];
-        snapshot.forEach(doc => {
-          locations.push({id: doc.id, title: doc.data().name})
+        snapshot.forEach((doc) => {
+          locations.push({id: doc.id, title: doc.data().name});
         });
 
         commit('setLocations', locations);
       });
 
-    }
+    },
   },
 });

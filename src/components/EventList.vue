@@ -24,15 +24,15 @@
     export default class EventList extends Vue {
         @Prop() private msg!: string;
 
-        beforeCreate(): void {
-            this.$store.dispatch('setLocations')
+        public beforeCreate(): void {
+            this.$store.dispatch('setLocations');
         }
 
-        data() {
+        public data() {
             return {
                 location: '',
-                errors: ''
-            }
+                errors: '',
+            };
         }
 
         get isLocationEnabled(): any {
